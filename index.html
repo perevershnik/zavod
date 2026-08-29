@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>Наша смена</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="stage">
+    <div class="bg-glow glow-a"></div>
+    <div class="bg-glow glow-b"></div>
+
+    <header class="top">
+      <div>
+        <div class="eyebrow">СІЛЬПО • НАША СМЕНА</div>
+        <h1>Нажми на кого-нибудь 👀</h1>
+      </div>
+      <button id="shuffleBtn" class="icon-btn" aria-label="Перемешать">↻</button>
+    </header>
+
+    <div id="arena" class="arena" aria-label="Коллеги"></div>
+
+    <button id="randomBtn" class="random-btn">🎲 Случайная мотивация</button>
+
+    <div id="quoteModal" class="quote-modal" aria-hidden="true">
+      <div class="quote-card">
+        <button id="closeQuote" class="close-btn" aria-label="Закрыть">×</button>
+        <img id="quotePhoto" class="quote-photo" alt="">
+        <div id="quoteName" class="quote-name"></div>
+        <div id="quoteText" class="quote-text"></div>
+        <div class="tap-hint">нажми в любом месте, чтобы закрыть</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

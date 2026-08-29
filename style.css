@@ -1,0 +1,170 @@
+:root{
+  --bg:#0b0d12;
+  --panel:rgba(18,22,31,.76);
+  --text:#f7f8fb;
+  --muted:#98a1b2;
+  --line:rgba(255,255,255,.08);
+  --accent:#f0d543;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text)}
+body{touch-action:manipulation}
+#stage{
+  position:relative;
+  width:100%;
+  height:100dvh;
+  min-height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(240,213,67,.08), transparent 35%),
+    linear-gradient(180deg,#0d1016 0%,#090b10 100%);
+}
+.bg-glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.28;pointer-events:none}
+.glow-a{width:210px;height:210px;left:-70px;top:26%;background:#5869ff}
+.glow-b{width:230px;height:230px;right:-90px;bottom:12%;background:#f0d543}
+
+.top{
+  position:absolute;
+  z-index:20;
+  top:max(12px,env(safe-area-inset-top));
+  left:14px;right:14px;
+  display:flex;align-items:flex-start;justify-content:space-between;
+  pointer-events:none;
+}
+.top>div{pointer-events:none}
+.eyebrow{
+  font-size:10px;
+  letter-spacing:.18em;
+  color:#a5adbb;
+  font-weight:800;
+}
+h1{
+  margin:6px 0 0;
+  max-width:270px;
+  font-size:20px;
+  line-height:1.08;
+  letter-spacing:-.03em;
+}
+.icon-btn{
+  pointer-events:auto;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);
+  background:rgba(20,24,33,.78);
+  backdrop-filter:blur(12px);
+  color:#fff;font-size:23px;font-weight:700;
+}
+.arena{
+  position:absolute;
+  inset:0;
+}
+.person{
+  position:absolute;
+  width:82px;height:82px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.9);
+  background:#242a37;
+  box-shadow:0 10px 30px rgba(0,0,0,.34),0 0 0 6px rgba(255,255,255,.03);
+  overflow:hidden;
+  transform:translate3d(0,0,0);
+  will-change:transform;
+  touch-action:none;
+}
+.person img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  pointer-events:none;
+}
+.person::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.42));
+  pointer-events:none;
+}
+.person-name{
+  position:absolute;
+  left:50%;bottom:7px;transform:translateX(-50%);
+  color:#fff;
+  font-size:10px;font-weight:800;
+  text-shadow:0 1px 4px #000;
+  z-index:2;
+  max-width:68px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.random-btn{
+  position:absolute;
+  z-index:25;
+  left:50%;
+  bottom:max(18px,env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  min-width:230px;
+  height:50px;
+  border:0;border-radius:16px;
+  background:var(--accent);
+  color:#17160e;
+  font-weight:900;
+  font-size:14px;
+  box-shadow:0 12px 30px rgba(240,213,67,.16);
+}
+.random-btn:active{transform:translateX(-50%) scale(.97)}
+.quote-modal{
+  position:absolute;inset:0;
+  z-index:50;
+  display:flex;align-items:center;justify-content:center;
+  padding:22px;
+  background:rgba(5,7,10,.76);
+  backdrop-filter:blur(16px);
+  opacity:0;pointer-events:none;
+  transition:opacity .22s ease;
+}
+.quote-modal.show{opacity:1;pointer-events:auto}
+.quote-card{
+  position:relative;
+  width:min(100%,390px);
+  padding:30px 22px 22px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(29,34,46,.95),rgba(15,18,25,.96));
+  box-shadow:0 30px 80px rgba(0,0,0,.48);
+  text-align:center;
+  transform:scale(.9) translateY(12px);
+  transition:transform .24s cubic-bezier(.2,.8,.2,1);
+}
+.quote-modal.show .quote-card{transform:scale(1) translateY(0)}
+.quote-photo{
+  width:108px;height:108px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.34);
+  background:#2a3040;
+}
+.quote-name{
+  margin-top:14px;
+  font-size:14px;
+  font-weight:900;
+  color:var(--accent);
+}
+.quote-text{
+  margin-top:13px;
+  font-size:24px;
+  line-height:1.18;
+  font-weight:900;
+  letter-spacing:-.03em;
+}
+.tap-hint{
+  margin-top:18px;
+  color:#7e8796;
+  font-size:10px;
+}
+.close-btn{
+  position:absolute;
+  top:12px;right:12px;
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.06);
+  color:#fff;font-size:25px;line-height:1;
+}
+
+@media (max-width:380px){
+  .person{width:72px;height:72px}
+  .quote-text{font-size:21px}
+  .random-btn{min-width:210px}
+}
